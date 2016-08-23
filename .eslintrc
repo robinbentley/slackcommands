@@ -4,5 +4,5 @@
     "browser": true,
     "node": true
   },
-  "extends": "defaults"
+  "extends": "defaults/configurations/google"
 }
