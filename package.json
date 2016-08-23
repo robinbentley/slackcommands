@@ -1,0 +1,27 @@
+{
+  "name": "slackcommands",
+  "version": "0.1.0",
+  "description": "A collection of custom slack commands for our chat",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node --use_strict build/index.js",
+    "dev": "./node_modules/.bin/nodemon src/index.js --exec babel-node --presets es2015,stage-0",
+    "lint": "eslint src; exit 0",
+    "build": "./node_modules/.bin/babel src -d ./build --presets es2015,stage-0"
+  },
+  "author": "Robin Bentley <robinbentley@me.com>",
+  "license": "WTFPL",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "hapi": "^14.1.0",
+    "babel-cli": "^6.11.4",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-stage-0": "^6.5.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.3.1",
+    "eslint-config-defaults": "^9.0.0"
+  }
+}
