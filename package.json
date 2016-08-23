@@ -7,8 +7,9 @@
   "scripts": {
     "start": "node --use_strict build/index.js",
     "dev": "./node_modules/.bin/nodemon src/index.js --exec babel-node --presets es2015,stage-0",
-    "lint": "eslint src; exit 0",
-    "build": "./node_modules/.bin/babel src -d ./build --presets es2015,stage-0"
+    "lint": "./node_modules/.bin/eslint src; exit 0",
+    "build": "./node_modules/.bin/babel src -d ./build --presets es2015,stage-0",
+    "test": "./node_modules/.bin/lab -T node_modules/lab-babel -I __core-js_shared__ -cSCv test"
   },
   "author": "Robin Bentley <robinbentley@me.com>",
   "license": "WTFPL",
@@ -21,7 +22,10 @@
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
+    "code": "^3.0.2",
     "eslint": "^3.3.1",
-    "eslint-config-defaults": "^9.0.0"
+    "eslint-config-defaults": "^9.0.0",
+    "lab": "^11.0.1",
+    "lab-babel": "^1.1.1"
   }
 }
