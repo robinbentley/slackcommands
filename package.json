@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "node --use_strict build/index.js",
+    "start": "node --use_strict --require babel-polyfill build/index.js",
     "dev": "./node_modules/.bin/nodemon src/index.js --exec babel-node --presets es2015,stage-0",
     "lint": "./node_modules/.bin/eslint src; exit 0",
     "build": "./node_modules/.bin/babel src -d ./build --presets es2015,stage-0",
@@ -15,6 +15,7 @@
   "license": "WTFPL",
   "dependencies": {
     "babel-cli": "^6.11.4",
+    "babel-polyfill": "^6.13.0",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-stage-0": "^6.5.0",
     "dotenv": "^2.0.0",
