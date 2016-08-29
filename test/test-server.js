@@ -1,5 +1,7 @@
 import {Server} from 'hapi';
 
+import commands from '../src/commands';
+
 const server = new Server();
 
 server.connection({
@@ -12,6 +14,11 @@ server.route({
   handler: (request, reply) => {
     reply('Test Server Available').code(200);
   }
+});
+
+// register plugins
+server.register({
+  register: commands
 });
 
 server.start((err) => {
