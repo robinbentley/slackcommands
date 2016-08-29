@@ -3,7 +3,6 @@ import request from 'request-promise';
 // report any errors - will be logged to the database
 // move this into utils as it can be used over all bots
 function logError(err) {
-  console.log(err);
   return 'There was an error. It has been logged';
 }
 
