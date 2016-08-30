@@ -55,7 +55,8 @@ function findWord(word = null) {
 async function respond(request, reply) {
   let response = {
     username: 'Urban Bot',
-    mrkdwn: true
+    mrkdwn: true,
+    response_type: 'in_channel'
   };
 
   response.text = await findWord(request.payload.text).catch((err) => {
