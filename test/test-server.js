@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import {Server} from 'hapi';
 
 import commands from '../src/commands';

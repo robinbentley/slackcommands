@@ -55,11 +55,19 @@ async function respond(request, reply) {
     response_type: 'in_channel'
   };
 
-  response.text = await findWord(request.payload.text).catch((err) => {
-    return logError(err);
-  });
+  // check auth token matches
+  if (request.payload.token !== process.env.URBAN_TOKEN) {
 
-  reply(response);
+    reply('Token invalid or no match').code(401);
+
+  } else {
+    response.text = await findWord(request.payload.text).catch((err) => {
+      return logError(err);
+    });
+
+    reply(response);
+  }
+
 };
 
 export const endpoints = [

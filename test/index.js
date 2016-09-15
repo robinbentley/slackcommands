@@ -16,18 +16,52 @@ lab.test('the test server running and accepting injection', (done) => {
 });
 
 lab.experiment('Testing: Urban', () => {
+  lab.test('It doesn\'t respond if token is missing', (done) => {
+    let options = {
+      method: 'POST',
+      url: '/urban',
+      payload: {
+        text: null,
+      }
+    };
+
+    server.inject(options, (reply) => {
+      Code.expect(reply.statusCode).to.equal(401);
+      Code.expect(reply.result).to.equal('Token invalid or no match');
+      done();
+    });
+  });
+
+  lab.test('It doesn\'t respond if tokens do not match', (done) => {
+    let options = {
+      method: 'POST',
+      url: '/urban',
+      payload: {
+        text: null,
+        token: 'WRONGTOKEN'
+      }
+    };
+
+    server.inject(options, (reply) => {
+      Code.expect(reply.statusCode).to.equal(401);
+      Code.expect(reply.result).to.equal('Token invalid or no match');
+      done();
+    });
+  });
+
   lab.test('It returns a random word', (done) => {
     let options = {
       method: 'POST',
       url: '/urban',
       payload: {
-        text: null
+        text: null,
+        token: 'FAKETOKEN'
       }
     };
 
     server.inject(options, (reply) => {
       Code.expect(reply.statusCode).to.equal(200);
-      Code.expect(reply.payload).to.include(['text']);
+      Code.expect(reply.result).to.include('text');
       done();
     });
   });
@@ -37,7 +71,8 @@ lab.experiment('Testing: Urban', () => {
       method: 'POST',
       url: '/urban',
       payload: {
-        text: 'test'
+        text: 'test',
+        token: 'FAKETOKEN'
       }
     };
 
@@ -53,7 +88,8 @@ lab.experiment('Testing: Urban', () => {
       method: 'POST',
       url: '/urban',
       payload: {
-        text: 'testasaasdasdasdasdadsasdasd'
+        text: 'testasaasdasdasdasdadsasdasd',
+        token: 'FAKETOKEN'
       }
     };
 
