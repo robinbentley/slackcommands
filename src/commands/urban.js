@@ -1,10 +1,6 @@
 import request from 'request-promise';
+import logError from '../utils/logger';
 
-// report any errors - will be logged to the database
-// move this into utils as it can be used over all bots
-function logError(err) {
-  return 'There was an error. It has been logged';
-}
 
 // format the response into something that the bot can understand
 function formatResponse(response) {
@@ -22,7 +18,7 @@ function formatResponse(response) {
   return formattedResponse;
 }
 
-// find a word - replaces individual fucntions for random word and defined word
+// find a word - replaces individual functions for random word and defined word
 function findWord(word = null) {
   const baseURI = 'http://api.urbandictionary.com/v0/';
 
