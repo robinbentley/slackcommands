@@ -4,5 +4,8 @@
     "browser": true,
     "node": true
   },
-  "extends": "defaults/configurations/google"
+  "extends": "defaults/configurations/google",
+  "rules": {
+    "max-len": "off"
+  }
 }

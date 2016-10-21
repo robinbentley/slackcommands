@@ -2025,11 +2025,7 @@ kind-of@^3.0.2:
   dependencies:
     is-buffer "^1.0.2"
 
-lab-babel@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/lab-babel/-/lab-babel-1.1.1.tgz#6814b2722d941f00d0194290efbe56c1315e179d"
-
-lab@^11.0.1:
+lab:
   version "11.1.0"
   resolved "https://registry.yarnpkg.com/lab/-/lab-11.1.0.tgz#78353a73f72edccf3709bb302af19a301c3d2e80"
   dependencies:
@@ -2047,6 +2043,10 @@ lab@^11.0.1:
     json-stringify-safe "5.x.x"
     mkdirp "0.5.x"
     source-map-support "0.4.x"
+
+lab-babel@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/lab-babel/-/lab-babel-1.1.1.tgz#6814b2722d941f00d0194290efbe56c1315e179d"
 
 lazy-cache@^1.0.3:
   version "1.0.4"
