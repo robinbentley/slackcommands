@@ -6,10 +6,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node --use_strict build/index.js",
-    "dev": "./node_modules/.bin/nodemon src/index.js --exec babel-node",
-    "lint": "./node_modules/.bin/eslint src; exit 0",
-    "build": "./node_modules/.bin/babel src -d ./build",
-    "test": "./node_modules/.bin/lab -T node_modules/lab-babel -I __core-js_shared__ -cSCv test"
+    "dev": "nodemon src/index.js --exec babel-node",
+    "lint": "eslint src; exit 0",
+    "build": "babel src -d ./build",
+    "test": "lab -T node_modules/lab-babel -I __core-js_shared__ -cSCv test"
   },
   "author": "Robin Bentley <robinbentley@me.com>",
   "license": "MIT",
