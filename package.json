@@ -31,5 +31,14 @@
     "eslint-config-defaults": "^9.0.0",
     "lab": "^11.0.1",
     "lab-babel": "^1.1.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ]
   }
 }
