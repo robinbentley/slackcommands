@@ -1,0 +1,8 @@
+general:
+  branches:
+    only:
+      - rework
+
+machine:
+  environment:
+    URBAN_TOKEN: FAKETOKEN
