@@ -9,7 +9,8 @@
     "dev": "nodemon src/index.js --exec babel-node",
     "lint": "eslint src; exit 0",
     "build": "babel src -d ./build",
-    "test": "npm run lint && lab"
+    "test": "npm run lint && lab",
+    "postinstall": "npm run build"
   },
   "author": "Robin Bentley <robinbentley@me.com>",
   "license": "MIT",
@@ -17,16 +18,16 @@
     "dotenv": "^2.0.0",
     "hapi": "^15.2.0",
     "request": "^2.74.0",
-    "request-promise": "^4.1.1"
-  },
-  "devDependencies": {
+    "request-promise": "^4.1.1",
     "babel-cli": "^6.11.4",
     "babel-eslint": "^6.1.2",
     "babel-preset-es2015": "^6.13.2",
+    "fast-async": "^6.1.1"
+  },
+  "devDependencies": {
     "code": "^3.0.2",
     "eslint": "^3.3.1",
     "eslint-config-defaults": "^9.0.0",
-    "fast-async": "^6.1.1",
     "lab": "^11.1.0",
     "lab-babel": "^1.1.1"
   },
