@@ -11,12 +11,12 @@ export default (lab, Code, server) => {
 
       server.inject(options, (reply) => {
         Code.expect(reply.statusCode).to.equal(401);
-        Code.expect(reply.result).to.equal('Token invalid or no match');
+        Code.expect(reply.result).to.equal('Invalid Token');
         done();
       });
     });
 
-    lab.test('It doesn\'t respond if tokens do not match', (done) => {
+    lab.test('It doesn\'t respond if token does not match', (done) => {
       let options = {
         method: 'POST',
         url: '/urban',
@@ -28,7 +28,7 @@ export default (lab, Code, server) => {
 
       server.inject(options, (reply) => {
         Code.expect(reply.statusCode).to.equal(401);
-        Code.expect(reply.result).to.equal('Token invalid or no match');
+        Code.expect(reply.result).to.equal('Invalid Token');
         done();
       });
     });
@@ -62,7 +62,7 @@ export default (lab, Code, server) => {
 
       server.inject(options, (reply) => {
         Code.expect(reply.statusCode).to.equal(200);
-        Code.expect(reply.payload).to.include(['text']);
+        Code.expect(reply.result).to.include('text');
         done();
       });
     });
