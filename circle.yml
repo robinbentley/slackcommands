@@ -1,0 +1,16 @@
+general:
+  branches:
+    only:
+      - master
+
+machine:
+  node:
+    version: 6.9.1
+  environment:
+    URBAN_TOKEN: URBAN
+
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: rbslackcommands
