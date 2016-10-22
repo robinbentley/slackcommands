@@ -9,7 +9,8 @@
     "dev": "nodemon src/index.js --exec babel-node",
     "lint": "eslint src; exit 0",
     "build": "babel src -d ./build",
-    "test": "npm run lint && lab"
+    "test": "npm run lint && lab",
+    "postinstall": "npm run build"
   },
   "author": "Robin Bentley <robinbentley@me.com>",
   "license": "MIT",
