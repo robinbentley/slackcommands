@@ -4,7 +4,7 @@ module.exports = {
   coverage: true,
   threshold: 90,
   globals: '__core-js_shared__,$error',
-  lint: true,
+  lint: false,
   sourcemaps: true,
   transform: './node_modules/lab-babel'
 };
