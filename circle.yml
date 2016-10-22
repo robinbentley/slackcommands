@@ -9,6 +9,10 @@ machine:
   environment:
     URBAN_TOKEN: FAKETOKEN
 
+test:
+  post:
+    - npm run build
+
 deployment:
   producttion:
     branch: rework
