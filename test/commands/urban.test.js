@@ -39,7 +39,7 @@ export default (lab, Code, server) => {
         url: '/urban',
         payload: {
           text: null,
-          token: 'FAKETOKEN'
+          token: 'URBAN'
         }
       };
 
@@ -56,7 +56,7 @@ export default (lab, Code, server) => {
         url: '/urban',
         payload: {
           text: 'test',
-          token: 'FAKETOKEN'
+          token: 'URBAN'
         }
       };
 
@@ -73,7 +73,7 @@ export default (lab, Code, server) => {
         url: '/urban',
         payload: {
           text: 'testasaasdasdasdasdadsasdasd',
-          token: 'FAKETOKEN'
+          token: 'URBAN'
         }
       };
 

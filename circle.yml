@@ -1,16 +1,16 @@
 general:
   branches:
     only:
-      - rework
+      - master
 
 machine:
   node:
-    version: 6.1.0
+    version: 6.9.1
   environment:
-    URBAN_TOKEN: FAKETOKEN
+    URBAN_TOKEN: URBAN
 
 deployment:
   production:
-    branch: rework
+    branch: master
     heroku:
       appname: rbslackcommands
