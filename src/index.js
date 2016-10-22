@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({silent: true});
 
 import {Server} from 'hapi';
 
@@ -27,5 +27,6 @@ server.route({
 });
 
 server.start((err) => {
+  console.log('Server running at: ', server.info.uri);
   if (err) {throw err;}
 });
