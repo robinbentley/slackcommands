@@ -8,3 +8,9 @@ machine:
     version: 6.1.0
   environment:
     URBAN_TOKEN: FAKETOKEN
+
+deployment:
+  producttion:
+    branch: rework
+    heroku:
+      appname: rbslackcommands
