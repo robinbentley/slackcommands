@@ -5,11 +5,9 @@ import {Server} from 'hapi';
 import commands from './commands';
 
 const server = new Server();
-const env = process.env;
 
 server.connection({
-  host: env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
-  port: env.OPENSHIFT_NODEJS_PORT || 3030
+  port: process.env.PORT || 3030
 });
 
 // register plugins
