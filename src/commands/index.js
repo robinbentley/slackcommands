@@ -1,10 +1,12 @@
 // register idividual commands into one plugin
-import {endpoints as Urban} from './urban.js';
+import {endpoints as Urban} from './urban';
+import {endpoints as Dank} from './dank';
 
 const commands = {
   register: (server, options, next) => {
 
     server.route(Urban);
+    server.route(Dank);
 
     next();
   }
