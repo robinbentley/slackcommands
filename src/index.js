@@ -15,16 +15,7 @@ server.register({
   register: commands
 });
 
-// openshift needs to get a 200 response from /health for monitoring
-server.route({
-  method: 'GET',
-  path: '/health',
-  handler: function(request, reply) {
-    reply().code(200);
-  }
-});
-
 server.start((err) => {
-  console.log('Server running at: ', server.info.uri);
   if (err) {throw err;}
+  console.log('Server running on port:', server.info.port);
 });
