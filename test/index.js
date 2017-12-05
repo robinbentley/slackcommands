@@ -9,13 +9,12 @@ import commandTests from './commands';
 
 const lab = exports.lab = Lab.script();
 
-lab.test('the test server running and accepting injection', (done) => {
+lab.test('the test server running and accepting injection', () => {
   let options = {url: '/'};
 
   server.inject(options, (reply) => {
     Code.expect(reply.result).to.equal('Test Server Available');
     Code.expect(reply.statusCode).to.equal(200);
-    done();
   });
 });
 

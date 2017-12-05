@@ -12,7 +12,6 @@ export default (lab, Code, server) => {
       server.inject(options, (reply) => {
         Code.expect(reply.statusCode).to.equal(401);
         Code.expect(reply.result).to.equal('Invalid Token');
-        done();
       });
     });
 
@@ -29,11 +28,10 @@ export default (lab, Code, server) => {
       server.inject(options, (reply) => {
         Code.expect(reply.statusCode).to.equal(401);
         Code.expect(reply.result).to.equal('Invalid Token');
-        done();
       });
     });
 
-    lab.test('It returns a random word', (done) => {
+    lab.test('It returns a random word', () => {
       let options = {
         method: 'POST',
         url: '/urban',
@@ -46,11 +44,10 @@ export default (lab, Code, server) => {
       server.inject(options, (reply) => {
         Code.expect(reply.statusCode).to.equal(200);
         Code.expect(reply.result).to.include('text');
-        done();
       });
     });
 
-    lab.test('It searches for a defined word', (done) => {
+    lab.test('It searches for a defined word', () => {
       let options = {
         method: 'POST',
         url: '/urban',
@@ -63,11 +60,10 @@ export default (lab, Code, server) => {
       server.inject(options, (reply) => {
         Code.expect(reply.statusCode).to.equal(200);
         Code.expect(reply.result).to.include('text');
-        done();
       });
     });
 
-    lab.test('It responds when a word is not found', (done) => {
+    lab.test('It responds when a word is not found', () => {
       let options = {
         method: 'POST',
         url: '/urban',
@@ -80,7 +76,6 @@ export default (lab, Code, server) => {
       server.inject(options, (reply) => {
         Code.expect(reply.statusCode).to.equal(200);
         Code.expect(reply.result.text).to.equal('Nothing found! Looks like *testasaasdasdasdasdadsasdasd* isn\'t real.');
-        done();
       });
     });
 
