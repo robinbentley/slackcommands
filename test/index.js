@@ -7,12 +7,12 @@ import textFormatterTests from './utils/textFormatter.test';
 import loggerTests from './utils/logger.test';
 import commandTests from './commands';
 
-const lab = exports.lab = Lab.script();
+const lab = (exports.lab = Lab.script());
 
 lab.test('the test server running and accepting injection', () => {
-  let options = {url: '/'};
+  let options = { url: '/' };
 
-  server.inject(options, (reply) => {
+  server.inject(options, reply => {
     Code.expect(reply.result).to.equal('Test Server Available');
     Code.expect(reply.statusCode).to.equal(200);
   });

@@ -1,9 +1,7 @@
-import {logError} from '../../src/utils/logger';
+import { logError } from '../../src/utils/logger';
 
 export default (lab, Code) => {
-
   lab.experiment('Testing: Logging', () => {
-
     lab.test('Logger accepts an error object and returns a message', () => {
       let errorObject = {};
       let errorMsg = logError(errorObject);
@@ -24,7 +22,5 @@ export default (lab, Code) => {
 
       Code.expect(errorMsg).to.equal('There was an error. It has been logged');
     });
-
   });
-
 };

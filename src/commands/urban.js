@@ -1,7 +1,7 @@
 import request from 'request-promise';
 
-import {logError} from '../utils/logger';
-import {formatBold, formatCodeBlock} from '../utils/textFormatter';
+import { logError } from '../utils/logger';
+import { formatBold, formatCodeBlock } from '../utils/textFormatter';
 
 /**
  * format the response into markdown for the bot output
@@ -9,7 +9,7 @@ import {formatBold, formatCodeBlock} from '../utils/textFormatter';
  * @return {string}                 formatted string
  */
 const _formatResponse = responseObject => {
-  let {word, definition, example} = responseObject;
+  let { word, definition, example } = responseObject;
   let formattedResponse = formatBold(word) + '\n' + definition;
 
   // some words don't have examples
@@ -30,19 +30,21 @@ const _findWord = word => {
 
   const options = {
     uri: 'http://api.urbandictionary.com/v0/' + requestType,
-    qs: {term: word},
+    qs: { term: word },
     json: true
   };
 
-  let response = request(options).then(content => {
-    if (content.result_type === 'no_results') {
-      return 'Nothing found! Looks like ' + formatBold(word) + ' isn\'t real.';
-    }
+  let response = request(options)
+    .then(content => {
+      if (content.result_type === 'no_results') {
+        return 'Nothing found! Looks like ' + formatBold(word) + " isn't real.";
+      }
 
-    return _formatResponse(content.list[0]);
-  }).catch(err => {
-    return logError(err);
-  });
+      return _formatResponse(content.list[0]);
+    })
+    .catch(err => {
+      return logError(err);
+    });
 
   return response;
 };
@@ -64,12 +66,12 @@ async function urban(request, reply) {
   if (request.payload.token !== process.env.URBAN_TOKEN) {
     reply('Invalid Token').code(401);
   } else {
-    response.text = await _findWord(request.payload.text).catch(err => logError(err));
+    response.text = await _findWord(request.payload.text).catch(err =>
+      logError(err)
+    );
 
     reply(response);
   }
-};
+}
 
-export const endpoints = [
-  {method: 'POST', path: '/urban', handler: urban}
-];
+export const endpoints = [{ method: 'POST', path: '/urban', handler: urban }];

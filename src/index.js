@@ -1,6 +1,6 @@
-require('dotenv').config({silent: true});
+require('dotenv').config({ silent: true });
 
-import {Server} from 'hapi';
+import { Server } from 'hapi';
 
 import commands from './commands';
 
@@ -15,7 +15,9 @@ server.register({
   register: commands
 });
 
-server.start((err) => {
-  if (err) {throw err;}
+server.start(err => {
+  if (err) {
+    throw err;
+  }
   console.log('Server running on port:', server.info.port);
 });

@@ -1,21 +1,21 @@
 export default (lab, Code, server) => {
   lab.experiment('Testing Command: Urban', () => {
-    lab.test('It doesn\'t respond if token is missing', (done) => {
+    lab.test("It doesn't respond if token is missing", done => {
       let options = {
         method: 'POST',
         url: '/urban',
         payload: {
-          text: null,
+          text: null
         }
       };
 
-      server.inject(options, (reply) => {
+      server.inject(options, reply => {
         Code.expect(reply.statusCode).to.equal(401);
         Code.expect(reply.result).to.equal('Invalid Token');
       });
     });
 
-    lab.test('It doesn\'t respond if token does not match', (done) => {
+    lab.test("It doesn't respond if token does not match", done => {
       let options = {
         method: 'POST',
         url: '/urban',
@@ -25,7 +25,7 @@ export default (lab, Code, server) => {
         }
       };
 
-      server.inject(options, (reply) => {
+      server.inject(options, reply => {
         Code.expect(reply.statusCode).to.equal(401);
         Code.expect(reply.result).to.equal('Invalid Token');
       });
@@ -41,7 +41,7 @@ export default (lab, Code, server) => {
         }
       };
 
-      server.inject(options, (reply) => {
+      server.inject(options, reply => {
         Code.expect(reply.statusCode).to.equal(200);
         Code.expect(reply.result).to.include('text');
       });
@@ -57,7 +57,7 @@ export default (lab, Code, server) => {
         }
       };
 
-      server.inject(options, (reply) => {
+      server.inject(options, reply => {
         Code.expect(reply.statusCode).to.equal(200);
         Code.expect(reply.result).to.include('text');
       });
@@ -73,11 +73,12 @@ export default (lab, Code, server) => {
         }
       };
 
-      server.inject(options, (reply) => {
+      server.inject(options, reply => {
         Code.expect(reply.statusCode).to.equal(200);
-        Code.expect(reply.result.text).to.equal('Nothing found! Looks like *testasaasdasdasdasdadsasdasd* isn\'t real.');
+        Code.expect(reply.result.text).to.equal(
+          "Nothing found! Looks like *testasaasdasdasdasdadsasdasd* isn't real."
+        );
       });
     });
-
   });
 };

@@ -1,9 +1,7 @@
 import * as formatter from '../../src/utils/textFormatter';
 
 export default (lab, Code) => {
-
   lab.experiment('Testing: Text Formatting', () => {
-
     lab.test('Format text to be bold', () => {
       let text = formatter.formatBold('test');
 
@@ -45,6 +43,5 @@ export default (lab, Code) => {
 
       Code.expect(text).to.equal('```test```');
     });
-
   });
 };

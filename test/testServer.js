@@ -1,13 +1,13 @@
-require('dotenv').config({silent: true});
+require('dotenv').config({ silent: true });
 
-import {Server} from 'hapi';
+import { Server } from 'hapi';
 
 import commands from '../src/commands';
 
 const server = new Server();
 
 server.connection({
-  'port': 4040
+  port: 4040
 });
 
 server.route({
@@ -23,7 +23,7 @@ server.register({
   register: commands
 });
 
-server.start((err) => {
+server.start(err => {
   console.log('Test Server running on port: ' + server.info.port);
 });
 
